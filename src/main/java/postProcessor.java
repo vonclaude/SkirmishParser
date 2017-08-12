@@ -63,6 +63,9 @@ public class postProcessor {
                     }
                 }
             }
+
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
         }
     }
 
