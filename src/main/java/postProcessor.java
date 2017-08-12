@@ -25,10 +25,6 @@ public class postProcessor {
         System.out.print("Enter the post number of the start of the action phase: ");
         int phaseStart = phaseStartScanner.nextInt();
 
-        Scanner outputScanner = new Scanner(System.in);
-        System.out.print("Type 'true' to display one player's action at a time. Type 'false' to display all actions at once. ");
-        Boolean outputSingle = outputScanner.nextBoolean();
-
         //Connect to thread, parse HTML for list of posts
         Document doc = Jsoup.connect(threadURL)
                 .maxBodySize(0)
@@ -57,15 +53,11 @@ public class postProcessor {
                     for (Object action : actions) {
                         System.out.println(action);
                     }
-                    if (outputSingle == true) {
-                        Scanner scanner = new Scanner(System.in);
-                        scanner.nextLine();
-                    }
                 }
-            }
 
-            Scanner scanner = new Scanner(System.in);
-            scanner.nextLine();
+                Scanner scanner = new Scanner(System.in);
+                scanner.nextLine();
+            }
         }
     }
 
