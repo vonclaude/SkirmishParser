@@ -4,8 +4,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by vonclaude on 8/11/2017.
@@ -14,6 +13,9 @@ public class postProcessor {
 
     public static void main(String [ ] args) throws IOException {
         postProcessor postProcessor = new postProcessor();
+        ArrayList<String> nameList = new ArrayList<String>();
+        ArrayList<String> diceList = new ArrayList<String>();
+        ArrayList<ArrayList<String>> actionList = new ArrayList<ArrayList<String>>();
 
         //Ask user for thread URL
         Scanner threadURLScanner = new Scanner(System.in);
@@ -44,20 +46,30 @@ public class postProcessor {
 
                 //Filters anonymous posts, posts with no Greentext
                 if (!name.equals("Anonymous") && !actions.isEmpty()) {
-                    System.out.println("-----");
-                    System.out.println(name);
-                    if (!dice.equals("")) {
-                        System.out.println(dice);
-                    }
-                    System.out.println("");
-                    for (Object action : actions) {
-                        System.out.println(action);
-                    }
-                }
+                    nameList.add(name);
+                    diceList.add(dice);
+                    actionList.add(actions);
 
-                Scanner scanner = new Scanner(System.in);
-                scanner.nextLine();
+                }
             }
+        }
+
+        for(int i = 0; i < nameList.size(); i++) {
+            ArrayList currentActions = actionList.get(i);
+
+            System.out.println(nameList.get(i));
+
+            if(!"".equals(diceList.get(i))) {
+                System.out.println(diceList.get(i));
+            }
+
+            for (int j = 0; j < currentActions.size(); j++) {
+                System.out.println(currentActions.get(j));
+            }
+
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
+
         }
     }
 
