@@ -13,7 +13,6 @@ The program will output a single player's list of actions at a single time. Pres
 	
 What this program doesn't support:
 
-- Exception handling: Errors will break everything, as will incorrect inputs
 - Parsing previously resolved action phases: The parser will run from the starting post, to the end of the thread. It will not break separate phases apart in any way.
 - Erroneous action formatting: All actions and ONLY ACTIONS MUST be formatted as greentext to be parsed correctly. Any non-action formatted as greentext will cause the parser to catch that post as an action post (and likely display blank, for the moment, hit enter to proceed).
 - Spoiler text in actions: Spoiler text will not be caught by the parser, even if included in a greentext action.
